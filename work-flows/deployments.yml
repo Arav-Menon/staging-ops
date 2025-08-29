@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: work-flow-backend
-          image: aravmenon12/work-flow:latest
+          image: aravmenon12/work-flow:5c6d0709aff2f659fc476af1b9a0726d71964bfb
           ports:
             - containerPort: 3000
