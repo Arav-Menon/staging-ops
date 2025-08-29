@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: work-flow-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: work-flow
+  template:
+    metadata:
+      labels:
+        app: work-flow
+    spec:
+      containers:
+        - name: work-flow-backend
+          image: aravmenon12/work-flow:latest
+          ports:
+            - containerPort: 3000
