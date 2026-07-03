@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: 100xdevs/todo-app-week-39:54d61a156a8b5e0ce9b5e779e5ac529550fc4ce3
+    ports:
+    - containerPort: 80
