@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: aravmenon12/trial-fe
   pullPolicy: IfNotPresent
-  tag: "8a65b747e950ad81616a191eddde0f1935c9c14e"
+  tag: "d9933b8ecb5775134f83eaf67d262dbe00434a47"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
