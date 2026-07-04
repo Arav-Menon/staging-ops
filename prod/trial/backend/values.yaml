@@ -1,37 +1,27 @@
 replicaCount: 2
-
 image:
   repository: aravmenon12/trail.be
-  tag: latest
+  tag: 28f3616ccf63bedcafe15893a76b5bee3b3b7a56
   pullPolicy: IfNotPresent
-
 imagePullSecrets: []
-
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: true
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
-
 podLabels:
   app: backend
   tier: api
-
 podSecurityContext: {}
-
 securityContext:
   runAsNonRoot: true
   allowPrivilegeEscalation: false
-
 service:
   type: ClusterIP
   port: 3001
-
 resources:
   requests:
     cpu: 100m
@@ -39,42 +29,30 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
-
 livenessProbe:
   httpGet:
     path: /
     port: http
-
 readinessProbe:
   httpGet:
     path: /
     port: http
-
 volumes: []
-
 volumeMounts: []
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
-
 ingress:
   enabled: true
-
   className: nginx
-
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
-
   hosts:
     - host: api-trial.arav.space
       paths:
         - path: /
           pathType: Prefix
-
   tls:
     - secretName: api-trial-tls
       hosts:

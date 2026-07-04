@@ -1,35 +1,27 @@
 replicaCount: 1
-
 image:
   repository: aravmenon12/trial-ws
   pullPolicy: IfNotPresent
-  tag: "1"
-
+  tag: "28f3616ccf63bedcafe15893a76b5bee3b3b7a56"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: true
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
 podLabels:
   app: websocket
   tier: ws-api
-
 podSecurityContext: {}
-
 securityContext:
   runAsNonRoot: true
   allowPrivilegeEscalation: false
-
 service:
   type: ClusterIP
   port: 3002
-
 ingress:
   enabled: false
   className: nginx
@@ -45,7 +37,6 @@ ingress:
     - secretName: ws-api-trial-tls
       hosts:
         - ws-api-trial.arav.space
-
 resources:
   requests:
     cpu: 100m
@@ -53,30 +44,22 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
-
 livenessProbe:
   httpGet:
     path: /
     port: http
-
 readinessProbe:
   httpGet:
     path: /
     port: http
-
 autoscaling:
   enabled: true
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
   targetMemoryUtilizationPercentage: 80
-
 volumes: []
-
 volumeMounts: []
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
