@@ -1,6 +1,6 @@
 replicaCount: 2
 image:
-  repository: aravmenon12/trail.be
+  repository: aravmenon12/trial.be
   tag: 28f3616ccf63bedcafe15893a76b5bee3b3b7a56
   pullPolicy: IfNotPresent
 imagePullSecrets: []
