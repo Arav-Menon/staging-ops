@@ -1,0 +1,77 @@
+replicaCount: 2
+
+image:
+  repository: aravmenon12/workverse-web
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podLabels:
+  app: workverse-web
+  tier: web
+
+podSecurityContext: {}
+securityContext:
+  runAsNonRoot: true
+  allowPrivilegeEscalation: false
+
+service:
+  type: ClusterIP
+  port: 3009
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts:
+  - host: workverse.arav.space
+    paths:
+    - path: /
+      pathType: Prefix
+  tls:
+  - secretName: web-workverse-tls
+    hosts:
+    - workverse.arav.space
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+volumes: []
+volumeMounts: []
+nodeSelector: {}
+tolerations: []
+affinity: {}
