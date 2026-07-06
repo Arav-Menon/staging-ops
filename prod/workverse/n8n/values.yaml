@@ -82,3 +82,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+envFrom:
+  - secretRef:
+      name: workverse-n8n
