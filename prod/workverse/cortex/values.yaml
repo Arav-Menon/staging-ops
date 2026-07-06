@@ -1,35 +1,27 @@
 replicaCount: 2
-
 image:
   repository: aravmenon12/workverse-cortex
-  tag: "latest"
+  tag: "d04795e8db63e3c6a004bfb12d18a3910351be1b"
   pullPolicy: IfNotPresent
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: true
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
-
 podLabels:
   app: workverse-cortex
   tier: cortex-api
-
 podSecurityContext: {}
 securityContext:
   runAsNonRoot: true
   allowPrivilegeEscalation: false
-
 service:
   type: ClusterIP
   port: 3000
-
 ingress:
   enabled: false
   className: nginx
@@ -37,15 +29,14 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-  - host: cortex-workverse.arav.space
-    paths:
-    - path: /
-      pathType: Prefix
+    - host: cortex-workverse.arav.space
+      paths:
+        - path: /
+          pathType: Prefix
   tls:
-  - secretName: cortex-workverse-tls
-    hosts:
-    - cortex-workverse.arav.space
-
+    - secretName: cortex-workverse-tls
+      hosts:
+        - cortex-workverse.arav.space
 resources:
   requests:
     cpu: 100m
@@ -53,7 +44,6 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
-
 livenessProbe:
   httpGet:
     path: /
@@ -62,14 +52,12 @@ readinessProbe:
   httpGet:
     path: /
     port: http
-
 autoscaling:
   enabled: true
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
   targetMemoryUtilizationPercentage: 80
-
 volumes: []
 volumeMounts: []
 nodeSelector: {}
