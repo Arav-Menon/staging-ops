@@ -42,6 +42,10 @@ volumeMounts: []
 nodeSelector: {}
 tolerations: []
 affinity: {}
+
+envFrom:
+  - secretRef:
+      name: backend-secret
 ingress:
   enabled: true
   className: nginx
