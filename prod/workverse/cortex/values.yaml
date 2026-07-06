@@ -23,7 +23,7 @@ service:
   type: ClusterIP
   port: 3000
 ingress:
-  enabled: false
+  enabled: true
   className: nginx
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
