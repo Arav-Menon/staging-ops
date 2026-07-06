@@ -76,3 +76,7 @@ volumeMounts: []
 nodeSelector: {}
 tolerations: []
 affinity: {}
+
+envFrom:
+  - secretRef:
+      name: workverse-space
