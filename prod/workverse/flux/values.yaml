@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: aravmenon12/workverse-flux
   pullPolicy: IfNotPresent
-  tag: "0a8c029c2f0bcad807fdbe39ada83914bc915531"
+  tag: "a1231d0a31593e6d5f52e82c52bf6b27ff724628"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
