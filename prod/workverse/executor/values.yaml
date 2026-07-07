@@ -1,38 +1,28 @@
 replicaCount: 2
-
 image:
   repository: "aravmenon12/workverse-executor"
-  tag: "latest"
+  tag: "73f0fa4dce419e85a7b7220057cd0c9989880631"
   pullPolicy: IfNotPresent
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: true
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
-
 podLabels:
   app: workverse-executor
   tier: executor
-
 podSecurityContext: {}
-
 securityContext:
   runAsNonRoot: true
   allowPrivilegeEscalation: false
-
 service:
   enabled: false
-
 ingress:
   enabled: false
-
 resources:
   requests:
     cpu: 100m
@@ -40,7 +30,6 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
-
 livenessProbe:
   httpGet:
     path: /
@@ -49,20 +38,17 @@ readinessProbe:
   httpGet:
     path: /
     port: http
-
 autoscaling:
   enabled: true
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
   targetMemoryUtilizationPercentage: 80
-
 volumes: []
 volumeMounts: []
 nodeSelector: {}
 tolerations: []
 affinity: {}
-
 envFrom:
   - secretRef:
       name: workverse-executor

@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: "aravmenon12/workverse-space"
-  tag: "d38af3bcc87114a4371d196470ca1418f3a2616b"
+  tag: "73f0fa4dce419e85a7b7220057cd0c9989880631"
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ""
@@ -63,7 +63,6 @@ volumeMounts: []
 nodeSelector: {}
 tolerations: []
 affinity: {}
-
 envFrom:
   - secretRef:
       name: workverse-space
