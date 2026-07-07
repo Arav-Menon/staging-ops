@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: "aravmenon12/workverse-mail-forger"
-  tag: "3d70381a9251c66fae7f45a840df2990d83ab21a"
+  tag: "009667e8edc8b690266dfd78d649f84eb42ebd15"
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ""
