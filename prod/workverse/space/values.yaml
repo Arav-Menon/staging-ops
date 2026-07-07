@@ -44,20 +44,9 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
-startupProbe:
-  httpGet:
-    path: /
-    port: http
-  failureThreshold: 30
-  periodSeconds: 10
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
+startupProbe: {}
+livenessProbe: {}
+readinessProbe: {}
 autoscaling:
   enabled: true
   minReplicas: 2
