@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: "aravmenon12/workverse-space"
-  tag: "7c39c7dfa3efdde918abfec6a1aac1844e0ce23c"
+  tag: "8b962b7cf54f7f64cfa78aa445282e0fee53bd9a"
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ""
