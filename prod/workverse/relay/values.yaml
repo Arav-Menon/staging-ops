@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: "aravmenon12/workverse-relay"
-  tag: "2a1be7bac9d01bfe6c9c91105b58396aa6146756"
+  tag: "9d000e369ccacdf7e17fc74f5dd5ac4fd4d01674"
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ""
