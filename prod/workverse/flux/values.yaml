@@ -48,10 +48,8 @@ livenessProbe:
   tcpSocket:
     port: http
 readinessProbe:
-  tcpSocket:
-    port: http
   httpGet:
-    path: /
+    path: /health
     port: http
 autoscaling:
   enabled: true
