@@ -1,32 +1,25 @@
 replicaCount: 2
-
 image:
   repository: "aravmenon12/workverse-relay"
-  tag: "73f0fa4dce419e85a7b7220057cd0c9989880631"
+  tag: "2a1be7bac9d01bfe6c9c91105b58396aa6146756"
   pullPolicy: IfNotPresent
-
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
 serviceAccount:
   create: true
   automount: false
   annotations: {}
   name: ""
-
 podAnnotations:
   prometheus.io/scrape: "true"
   prometheus.io/port: "8089"
   prometheus.io/path: "/metrics"
-
 podLabels:
   app: workverse-relay
   tier: relay
-
 podSecurityContext:
   fsGroup: 1000
-
 securityContext:
   runAsNonRoot: true
   runAsUser: 1000
@@ -36,11 +29,9 @@ securityContext:
   capabilities:
     drop:
       - ALL
-
 service:
   type: ClusterIP
   port: 8089
-
 ingress:
   enabled: true
   className: nginx
@@ -58,7 +49,6 @@ ingress:
     - secretName: relay-workverse-tls
       hosts:
         - relay-workverse.arav.space
-
 resources:
   requests:
     cpu: 100m
@@ -66,7 +56,6 @@ resources:
   limits:
     cpu: 500m
     memory: 512Mi
-
 startupProbe:
   httpGet:
     path: /health
@@ -74,7 +63,6 @@ startupProbe:
   initialDelaySeconds: 5
   periodSeconds: 5
   failureThreshold: 30
-
 livenessProbe:
   httpGet:
     path: /health
@@ -82,7 +70,6 @@ livenessProbe:
   initialDelaySeconds: 10
   periodSeconds: 15
   timeoutSeconds: 3
-
 readinessProbe:
   httpGet:
     path: /ready
@@ -91,26 +78,20 @@ readinessProbe:
   periodSeconds: 10
   timeoutSeconds: 3
   failureThreshold: 3
-
 terminationGracePeriodSeconds: 30
-
 lifecycle:
   preStop:
     exec:
       command: ["sh", "-c", "sleep 5"]
-
 autoscaling:
   enabled: true
   minReplicas: 2
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
   targetMemoryUtilizationPercentage: 80
-
 volumes: []
 volumeMounts: []
-
 nodeSelector: {}
-
 affinity:
   podAntiAffinity:
     preferredDuringSchedulingIgnoredDuringExecution:
@@ -123,9 +104,7 @@ affinity:
                 values:
                   - relay
           topologyKey: kubernetes.io/hostname
-
 tolerations: []
-
 envFrom:
   - secretRef:
       name: relay-secret
