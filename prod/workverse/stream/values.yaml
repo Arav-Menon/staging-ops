@@ -3,19 +3,19 @@ image:
   repository: "aravmenon12/workverse-stream"
   tag: "07a4df27f98c6b9bc243756d9baa57015f54bbfe"
   pullPolicy: IfNotPresent
-imagePullSecrets: []
+imagePullSecrets: [ ]
 nameOverride: ""
 fullnameOverride: ""
 serviceAccount:
   create: true
   automount: true
-  annotations: {}
+  annotations: { }
   name: ""
-podAnnotations: {}
+podAnnotations: { }
 podLabels:
   app: workverse-stream
   tier: stream
-podSecurityContext: {}
+podSecurityContext: { }
 securityContext:
   runAsNonRoot: true
   allowPrivilegeEscalation: false
@@ -45,12 +45,10 @@ resources:
     cpu: "2"
     memory: 2Gi
 livenessProbe:
-  httpGet:
-    path: /
+  tcpSocket:
     port: http
 readinessProbe:
-  httpGet:
-    path: /
+  tcpSocket:
     port: http
 autoscaling:
   enabled: true
@@ -58,11 +56,11 @@ autoscaling:
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
   targetMemoryUtilizationPercentage: 80
-volumes: []
-volumeMounts: []
-nodeSelector: {}
-tolerations: []
-affinity: {}
+volumes: [ ]
+volumeMounts: [ ]
+nodeSelector: { }
+tolerations: [ ]
+affinity: { }
 envFrom:
   - secretRef:
       name: stream-secret
