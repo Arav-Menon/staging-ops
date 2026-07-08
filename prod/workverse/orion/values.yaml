@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: aravmenon12/workverse-orion
   pullPolicy: IfNotPresent
-  tag: "42371d6f66874331bbc9bf68c812962b85908637"
+  tag: "b02f83e704780a92b9c5fe8dc5a07e0bcc8e3b9c"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
