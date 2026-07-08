@@ -1,7 +1,7 @@
 replicaCount: 2
 image:
   repository: aravmenon12/workverse-cortex
-  tag: "bff0e88fae180aeb8c38563f99f12b62236f9dc4"
+  tag: "30aa3a4496c7b387cc43ecd4701c4bae8a60ddbd"
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ""
