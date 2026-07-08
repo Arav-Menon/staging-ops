@@ -45,10 +45,11 @@ resources:
     cpu: 500m
     memory: 512Mi
 livenessProbe:
-  httpGet:
-    path: /
+  tcpSocket:
     port: http
 readinessProbe:
+  tcpSocket:
+    port: http
   httpGet:
     path: /
     port: http
