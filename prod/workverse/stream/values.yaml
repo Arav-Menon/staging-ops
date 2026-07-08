@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: "aravmenon12/workverse-stream"
-  tag: "9d000e369ccacdf7e17fc74f5dd5ac4fd4d01674"
+  tag: "07a4df27f98c6b9bc243756d9baa57015f54bbfe"
   pullPolicy: IfNotPresent
 imagePullSecrets: []
 nameOverride: ""
