@@ -3,19 +3,19 @@ image:
   repository: aravmenon12/workverse-orion
   pullPolicy: IfNotPresent
   tag: "73f0fa4dce419e85a7b7220057cd0c9989880631"
-imagePullSecrets: []
+imagePullSecrets: [ ]
 nameOverride: ""
 fullnameOverride: ""
 serviceAccount:
   create: true
   automount: true
-  annotations: {}
+  annotations: { }
   name: ""
-podAnnotations: {}
+podAnnotations: { }
 podLabels:
   app: orion-workverse
   tier: orion-api
-podSecurityContext: {}
+podSecurityContext: { }
 securityContext:
   runAsNonRoot: true
   allowPrivilegeEscalation: false
@@ -58,11 +58,11 @@ autoscaling:
   maxReplicas: 5
   targetCPUUtilizationPercentage: 70
   targetMemoryUtilizationPercentage: 80
-volumes: []
-volumeMounts: []
-nodeSelector: {}
-tolerations: []
-affinity: {}
+volumes: [ ]
+volumeMounts: [ ]
+nodeSelector: { }
+tolerations: [ ]
+affinity: { }
 envFrom:
   - secretRef:
-      name: workverse-orion
+      name: orion-secret
