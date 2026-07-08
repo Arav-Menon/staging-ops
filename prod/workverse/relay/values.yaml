@@ -65,4 +65,4 @@ tolerations: []
 affinity: {}
 envFrom:
   - secretRef:
-      name: workverse-relay
+      name: relay-secret
