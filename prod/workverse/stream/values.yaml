@@ -1,4 +1,4 @@
-replicaCount: 2
+replicaCount: 1
 image:
   repository: "aravmenon12/workverse-stream"
   tag: "73f0fa4dce419e85a7b7220057cd0c9989880631"
@@ -39,11 +39,11 @@ ingress:
         - stream-workverse.arav.space
 resources:
   requests:
-    cpu: 100m
-    memory: 128Mi
-  limits:
     cpu: 500m
     memory: 512Mi
+  limits:
+    cpu: "2"
+    memory: 2Gi
 livenessProbe:
   httpGet:
     path: /
@@ -65,4 +65,4 @@ tolerations: []
 affinity: {}
 envFrom:
   - secretRef:
-      name: workverse-stream
+      name: stream-secret
