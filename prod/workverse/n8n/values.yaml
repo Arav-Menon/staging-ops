@@ -64,4 +64,4 @@ tolerations: []
 affinity: {}
 envFrom:
   - secretRef:
-      name: workverse-n8n
+      name: n8n-secret
