@@ -53,4 +53,4 @@ tolerations: []
 affinity: {}
 envFrom:
   - secretRef:
-      name: mail-forger-secret
+      name: forger-secret
