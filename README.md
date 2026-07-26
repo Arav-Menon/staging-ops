@@ -1,5 +1,7 @@
 # staging-ops
 
+
+
 Personal GitOps repository for managing Kubernetes deployments across all applications.
 
 ## Purpose
